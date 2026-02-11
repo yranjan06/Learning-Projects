@@ -5,6 +5,7 @@ A comprehensive Go-based API gateway simulator that demonstrates production-grad
 ## Architecture Overview
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 graph TB
     %% Client Layer
     subgraph "Client Layer"
@@ -72,12 +73,12 @@ graph TB
     M1 --> M4
 
     %% Styling
-    classDef clientClass fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef gatewayClass fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef providerClass fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
-    classDef metricsClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    classDef errorClass fill:#ffebee,stroke:#c62828,stroke-width:2px
-    classDef successClass fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    classDef clientClass fill:#1e3a5f,stroke:#4fc3f7,stroke-width:2px
+    classDef gatewayClass fill:#3e2723,stroke:#ff8a65,stroke-width:2px
+    classDef providerClass fill:#1b5e20,stroke:#81c784,stroke-width:2px
+    classDef metricsClass fill:#4a148c,stroke:#ba68c8,stroke-width:2px
+    classDef errorClass fill:#b71c1c,stroke:#ef5350,stroke-width:2px
+    classDef successClass fill:#2e7d32,stroke:#66bb6a,stroke-width:2px
 
     class C1,C2 clientClass
     class RL,LB,CB,GW gatewayClass
@@ -90,6 +91,7 @@ graph TB
 ## Detailed Request Flow
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 flowchart TD
     START([Request Starts]) --> RATE_CHECK{Rate Limit Check<br/>1000 RPS}
 
@@ -120,11 +122,11 @@ flowchart TD
     METRICS --> END([Request Complete])
 
     %% Styling
-    classDef processClass fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef decisionClass fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    classDef successClass fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
-    classDef errorClass fill:#ffebee,stroke:#d32f2f,stroke-width:2px
-    classDef metricsClass fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef processClass fill:#0d47a1,stroke:#42a5f5,stroke-width:2px
+    classDef decisionClass fill:#e65100,stroke:#ffb74d,stroke-width:2px
+    classDef successClass fill:#2e7d32,stroke:#66bb6a,stroke-width:2px
+    classDef errorClass fill:#b71c1c,stroke:#ef5350,stroke-width:2px
+    classDef metricsClass fill:#4a148c,stroke:#ba68c8,stroke-width:2px
 
     class START,END processClass
     class RATE_CHECK,PROVIDER_SELECT,CIRCUIT_CHECK,SUCCESS_CHECK,COOLDOWN_CHECK decisionClass
@@ -136,6 +138,7 @@ flowchart TD
 ## Circuit Breaker State Machine
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 stateDiagram-v2
     [*] --> Healthy: Initial state
     Healthy --> Failing: Error threshold reached
